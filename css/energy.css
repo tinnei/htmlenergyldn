@@ -1,0 +1,28 @@
+html {
+  background-color: darkkhaki;
+  color: bisque;
+}
+
+.greeting {
+  text-align: center;
+  font-size: 100px;
+  font-weight: normal;
+  font-style: italic;
+  color: white;
+  filter: drop-shadow(10px 10px 5px darkblue);
+}
+
+marquee {
+  filter: drop-shadow(8px 8px 10px fuchsia);
+}
+
+.emoji {
+  font-size: 50px;
+}
+
+#soundbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
