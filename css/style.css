@@ -54,3 +54,7 @@
 .area-button {
     background-color: red;
 }
+
+area {
+    cursor: pointer;
+}
