@@ -12,12 +12,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ruby Annotations</title>
     <style>
-    .code-ruby {
-        font-size: 6pt;
+    main {
+        margin: 2rem;
     }
 
-    .ruby-grow-on-hover:hover rt {
-        font-size: 12pt;
+    figure {
+        border: black solid 1px;
+        padding: 2rem;
+    }
+
+    figcaption {
+        border-top: black solid 1px;
+    }
+
+    details[open] summary {
+        border-bottom: black solid 1px;
+        padding-bottom: 5px;
+    }
+
+    footer {
+        border-top: black solid 1px;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    .monobold {
+        font-family: 'Courier New', monospace;
+        font-weight: bold
+    }
+
+    .energy {
+        color: #0aec43;
+        filter: drop-shadow(0 0 1px lime);
     }
     </style>
 </head>
@@ -27,9 +53,9 @@
 
 <body>
 <main>
-<h1>Ruby Annotations</h1>
+<h1><img alt="<ruby> is great!" src="image/rubybanner.png" /></h1>
 <p>The <code>&lt;ruby&gt;</code> element can be used to add annotations to text. It is most commonly used for showing pronunciation of East Asian characters. However, perhaps we could use it for other things too?</p>
-<p>It could be useful for translations:</p>
+<p>It could be useful for translations (as suggested by <a href="https://shkspr.mobi/blog/2022/07/simultaneous-translation-in-html/">Terence Eden</a>):</p>
 <figure>
 <blockquote lang="la">
     <ruby>veni<rp>(</rp><rt lang="en">I came</rt><rp>)</rp>, vidi<rp>(</rp><rt lang="en">I saw</rt><rp>)</rp>, vici<rp>(</rp><rt lang="en">I conquered</rt><rp>)</rp></ruby>
@@ -38,48 +64,62 @@
 </figure>
 <br />
 <p>Perhaps we could use it for annotating code:</p>
+<style>
+    .larger-ruby {
+        font-size: 8pt;
+    }
+</style>
 <figure>
 <pre>
 <code>
-float Q_rsqrt( float number )
-{
-    long i;
-    float x2, y;
-    const float threehalfs = 1.5F;
-
-    x2 = number * 0.5F;
-    y  = number;
-    <ruby>i  = * ( long * ) &y;<rp>/*</rp><rt class="code-ruby">reinterprets bits of the float as a long</rt><rp>*/</rp></ruby>                       // evil floating point bit level hacking
-    <ruby>i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="code-ruby">abuses floating point w/ bitwise operations</rt><rp>*/</rp></ruby>               // what the fuck?
-    <ruby>y  = * ( float * ) &i;<rp>/*</rp><rt class="code-ruby">reinterprets bits back to a float</rt><rp>*/</rp></ruby>
-    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
-//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
-
-    return y;
-}
+    <ruby>i  = * ( long * ) &y;<rp>/*</rp><rt class="larger-ruby">reinterprets bits of the float as a long</rt><rp>*/</rp></ruby>                       // evil floating point bit level hacking
+    <ruby>i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="larger-ruby">abuses floating point w/ bitwise operations</rt><rp>*/</rp></ruby>               // what the fuck?
+    <ruby>y  = * ( float * ) &i;<rp>/*</rp><rt class="larger-ruby">reinterprets bits back to a float</rt><rp>*/</rp></ruby>
 </code>
 </pre>
-<figcaption>Fast inverse square root (from <cite>Quake III</cite>), annotated with ruby</figcaption>
+<figcaption>Section of the fast inverse square root (from <cite>Quake III</cite>), annotated with ruby.</figcaption>
 </figure>
 <br />
-<p>This is cool, but it's not overly readable, even with the font size bumped up a little. Perhaps we can use CSS to improve it?</p>
+<p>This is cool. We could alternatively use CSS to grow it on hover:</p>
+<style>
+.ruby-grow-on-hover:hover rt {
+    font-size: 10pt;
+}
+</style>
 <figure>
 <pre>
 <code>
-    <ruby class="ruby-grow-on-hover">i  = * ( long * ) &y;<rp>/*</rp><rt class="code-ruby">reinterprets bits of the float as a long</rt><rp>*/</rp></ruby>                       // evil floating point bit level hacking
-    <ruby class="ruby-grow-on-hover">i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="code-ruby">abuses floating point w/ bitwise operations</rt><rp>*/</rp></ruby>               // what the fuck?
-    <ruby class="ruby-grow-on-hover">y  = * ( float * ) &i;<rp>/*</rp><rt class="code-ruby">reinterprets bits back to a float</rt><rp>*/</rp></ruby>
+    <ruby class="ruby-grow-on-hover">i  = * ( long * ) &y;<rp>/*</rp><rt>reinterprets bits of the float as a long</rt><rp>*/</rp></ruby>                       // evil floating point bit level hacking
+    <ruby class="ruby-grow-on-hover">i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt>abuses floating point w/ bitwise operations</rt><rp>*/</rp></ruby>               // what the fuck?
+    <ruby class="ruby-grow-on-hover">y  = * ( float * ) &i;<rp>/*</rp><rt>reinterprets bits back to a float</rt><rp>*/</rp></ruby>
 </code>
 </pre>
-<figcaption>Code (from <cite>Quake III</cite>), annotated with ruby that <em>grows on hover!</em></figcaption>
+<figcaption>Code annotated with ruby that <strong>grows on hover</strong>.</figcaption>
 </figure>
-<p>Or, instead of growing the ruby itself, maybe we could <em>expand</em>it to show more details:</p>
+<br />
+<p>Or, instead of growing the ruby itself, maybe we could <em>expand</em> it to show more details:</p>
 <figure>
-<pre><code>
-    <ruby>This is some very confusing text<rp>(</rp><rt><details><summary>Brief explanatio</summary><p>This is a longer explanation, with more detail 😀</p></details></rt><rp>)</rp>/ruby>
-</code></pre>
+    <pre>
+<code>
+    <ruby>i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="larger-ruby"><details><summary>abuses floating point w/ bitwise operations</summary>
+    <p>Yeah tbh I have no clue what's going on here.</p>
+    <p>The <a href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">Wikipedia article</a> has a lot of words but not enough to make me understand.</p></details></rt><rp>*/</rp></ruby>               // what the fuck?
+</code>
+</pre>
+<figcaption>Code annotated with ruby that <strong>expands on click</strong>.</figcaption>
 </figure>
+However, when doing this, be careful not to make the expanded one too wide, to avoid moving the text too much.
+<br />
+<br />
+What will you use &lt;ruby&gt; for?
 </main>
+
+<footer>
+<p>made with <span class="monobold" style="color: red">&lt;3</span> &amp; <a href="https://html.energy/" class="monobold energy">HTML ENERGY</a> by <a href="https://willbl.dev/" class="monobold" style="color: grey">will</a></p>
+
+<a href="index.html" class="monobold energy">HTML ENERGY LDN</a>
+</footer>
+
 </body>
 
 <script>
