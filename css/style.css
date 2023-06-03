@@ -10,8 +10,14 @@
 }
 
 .html-energy-page a {
-    color: #73EF34;
     text-decoration-line: underline;
+}
+
+.center-container {
+    max-width: 600px;
+    color: #48b611;
+    margin: auto;
+    padding: 100px;
 }
 
 .flower {
@@ -20,6 +26,8 @@
     padding: 32px;
     position: absolute;
     opacity: 0.5;
+    color: #2c5617;
+    line-height: .3;
 }
 
 #flower {
