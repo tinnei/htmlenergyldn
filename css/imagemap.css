@@ -1,0 +1,49 @@
+.image-map {
+    width: 800px;
+    height: 600px;
+}
+
+.area-button {
+    background-color: red;
+}
+
+area {
+    cursor: pointer;
+}
+
+/* may have to adjust these to make responsive to any screens; perhaps image can be centered */
+.orange {
+    background-color: orange;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 130px;
+    left: 300px;
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+}
+
+.cherry {
+    background-color: purple;
+    width: 320px;
+    height: 280px;
+    position: absolute;
+    top: 230px;
+    left: 340px;
+    opacity: 0.3;
+    cursor: pointer;
+    border: none;
+}
+
+.cherrytomato {
+    background-color: red;
+    width: 230px;
+    height: 180px;
+    position: absolute;
+    top: 400px;
+    left: 200px;
+    opacity: 0.3;
+    cursor: pointer;
+    border: none;
+}

@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link href="css/imagemap.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <!-- <link href="css/imagemap.css" rel="stylesheet" /> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet" />
     <meta property="og:image" content="image/sharing_cover.png" />
     <meta property="og:image:type" content="image/png" />
@@ -19,19 +19,32 @@
 <body>
     <div>
         <img src="image/floor.png" class="image-map" alt="imagemap" usemap="#workmap">
+        <button class="orange" onClick="orangeClicked()"></button>
+        <button class="cherry" onClick="cherryClicked()"></button>
+        <button class="cherrytomato" onClick="cherryTOMATOClicked()"></button>
         <div id="clicked-items">HELLO</div>
-        <map name="workmap">
+
+        <!-- re Ellis/Will, you're right, position:absolute is the way to go; you can't style AREA-->
+        <map name="imagemap">
             <area shape="rect" class="area-button" coords="34,50,270,350" alt="oranges" onClick="buttonClicked()">
-            <!-- <area shape="rect" coords="290,172,333,250" alt="Phone" onClick="buttonClicked()"> -->
-            <!-- <area shape="circle" coords="337,300,44" alt="Coffee" onClick="buttonClicked()"> -->
         </map>
     </div>
 </body>
 
 <script>
-    function buttonClicked() {
+    function orangeClicked() {
         console.log("button clicked");
         document.getElementById("clicked-items").innerHTML = "this is a bunch of oranges";
+    }
+
+    function cherryClicked() {
+        console.log("button clicked");
+        document.getElementById("clicked-items").innerHTML = "this is a box of cherries";
+    }
+
+    function cherryTOMATOClicked() {
+        console.log("button clicked");
+        document.getElementById("clicked-items").innerHTML = "this is a box of cherry tomatoes";
     }
 </script>
 

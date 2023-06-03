@@ -45,16 +45,3 @@
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
-.image-map {
-    width: 100%;
-    height: 95vh;
-}
-
-.area-button {
-    background-color: red;
-}
-
-area {
-    cursor: pointer;
-}
