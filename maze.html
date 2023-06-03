@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!--
+
+                     ````````
+               ````````````````````
+            ``````````````````````````
+         ```````````````````````````````
+        ``````````````````````````````````
+      ``````````````````````````````````````
+     ````````````````````````````````````````
+    ``````````````````````````````````````````
+   ``````````````````        `````````````````
+   `````````````````          `````````````````
+   ````````````````            ````````````````
+   ````````````````            ````````````````
+   ````````````````           `````````````````
+   ``````````````````        `````````````````
+    ``````````````````````````````````````````
+     ````````````````````````````````````````
+      ``````````````````````````````````````
+       ````````````````````````````````````
+         ````````````````````````````````
+           ````````````````````````````
+              ``````````````````````
+                   ````````````
+
+ -->
+<html>
+
+<head>
+    <title>Find your HTML Energy</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        body {
+            position: relative;
+            background: lightgoldenrodyellow;
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #wrapper {
+            z-index: 9999;
+        }
+
+        #container {
+            width: 256px;
+            height: 256px;
+            background: cornflowerblue;
+            margin-top: -100px;
+            box-shadow: -10px -15px 0px 0px indianred;
+            transform:
+                perspective(603px) rotate(180deg) translate3d(0, 0, 0) rotateX(-60deg) scale(200%);
+        }
+
+        div[id^="row-"] {
+            width: 100%;
+            justify-content: space-around;
+            animation: in 300ms normal ease forwards;
+        }
+
+        @keyframes in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        details {
+            cursor: pointer;
+        }
+
+        details>summary::marker,
+        details>summary::-webkit-details-marker {
+            color: khaki;
+            transition: all ease-out 250ms;
+        }
+
+        details:not(details[open]) {
+            transform: translateX(-2px) rotate(-90deg);
+        }
+
+        div[id^="row-"]:not(#row-1) {
+            display: none;
+        }
+
+        #row-1 {
+            display: flex;
+        }
+
+        #row-1:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-2:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-3:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-4:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-5:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-6:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        #row-7:has(details[id^="solve-"][open])+div[id^="row-"] {
+            display: flex;
+        }
+
+        details[open]:not(details[id^="solve-"])>summary::marker,
+        details[open]:not(details[id^="solve-"])>summary::-webkit-details-marker {
+            color: tomato;
+        }
+
+        div[id^="row-"]:has(details[id^="solve-"][open]) summary::marker,
+        div[id^="row-"]:has(details[id^="solve-"][open]) summary::-webkit-details-marker {
+            color: darkseagreen;
+        }
+
+        details[id^="solve-"][open]>summary::marker,
+        details[id^="solve-"][open]>summary::-webkit-details-marker {
+            color: chartreuse !important;
+        }
+
+        /* Reveal the ENERGY */
+        #row-8:has(details[id^="solve-"][open])+.⚡️ {
+            display: block !important;
+        }
+
+        .⚡️ {
+            display: none;
+        }
+
+        .⚡️ {
+            transform: rotateZ(90deg) rotateX(106deg) rotateY(0deg) translateX(137px) scale(3);
+        }
+
+        .⚡️>img {
+            animation: rotate-forever 100s linear;
+        }
+
+        @keyframes rotate-forever {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h3 {
+            font-family: cursive;
+            color: tan;
+            position: absolute;
+            font-size: 6px;
+            font-weight: lighter;
+            text-align: center;
+            top: -40px;
+            left: 0;
+            right: 0;
+
+        }
+
+        /* Floaties */
+        ul#floaties {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            margin: 0;
+            transform: perspective(603px) translate3d(0, 0, 0) rotateX(60deg);
+        }
+
+        ul#floaties li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            background-color: chartreuse;
+            bottom: -200px;
+            animation: floating 8s infinite ease-in-out;
+        }
+
+        ul#floaties li:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 25%;
+            animation-delay: 0.1s;
+        }
+
+        ul#floaties li:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 95%;
+            animation-delay: 10s;
+        }
+
+        ul#floaties li:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            left: 75%;
+            animation-delay: 18s;
+        }
+
+        ul#floaties li:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            left: 10%;
+            animation-delay: 5s;
+        }
+
+        ul#floaties li:nth-child(5) {
+            width: 40px;
+            height: 40px;
+            left: 60%;
+            animation-delay: 8s;
+        }
+
+        ul#floaties li:nth-child(6) {
+            width: 90px;
+            height: 90px;
+            left: 84%;
+            animation-delay: 1s;
+        }
+
+        ul#floaties li:nth-child(7) {
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            animation-delay: 15s;
+        }
+
+        ul#floaties li:nth-child(8) {
+            width: 100px;
+            height: 100px;
+            left: 40%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floating {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <h3 style="transform: rotate(180deg);">Find your <sup style="font-style: italic;">HTML Energy</sup> through
+                the maze</h3>
+            <div id="row-1">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-1">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-2">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-2">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-3">
+                <details id="solve-3">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-4">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-4">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-5">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-5">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-6">
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-6">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-7">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-7">
+                    <summary></summary>
+                </details>
+            </div>
+            <div id="row-8">
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details id="solve-8">
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+                <details>
+                    <summary></summary>
+                </details>
+            </div>
+            <div class="⚡️">
+                <img alt="HTML Energy's lime green glowing star" src="https://html.energy/images/star.png" width="300"
+                    height="300">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floaties -->
+    <ul id="floaties">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<!-- @_adams_computer / @adams_computer@mastodon.social -->
