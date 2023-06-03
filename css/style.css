@@ -6,7 +6,11 @@
     text-align: center;
     padding-top: 200px;
     padding-bottom: 100px;
-    color: #73EF34;
+    color: #297702;
+}
+
+.html-energy-page a {
+    color: #297702;
 }
 
 .html-energy-page a {
@@ -23,15 +27,12 @@
 .flower {
     min-width: 50px;
     width: 100%;
-    padding: 32px;
-    position: absolute;
     opacity: 0.5;
-    color: #2c5617;
+    color: #297702;
     line-height: .3;
 }
 
 #flower {
-    position: absolute;
     opacity: 0.5;
 }
 
