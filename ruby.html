@@ -20,6 +20,15 @@
         border: black solid 1px;
         padding: 2rem;
     }
+
+    figcaption {
+        border-top: black solid 1px;
+    }
+
+    details[open] summary {
+        border-bottom: black solid 1px;
+        padding-bottom: 5px;
+    }
     </style>
 </head>
 
@@ -74,8 +83,19 @@
 <br />
 <p>Or, instead of growing the ruby itself, maybe we could <em>expand</em> it to show more details:</p>
 <figure>
-    <ruby>This is some very confusing text<rp>(</rp><rt class="larger-ruby"><details><summary>Brief explanation</summary><p>This is a longer explanation, with more detail 😀</p></details></rt><rp>)</rp></ruby>
+    <pre>
+<code>
+    <ruby>i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="larger-ruby"><details><summary>abuses floating point w/ bitwise operations</summary>
+    <p>Yeah tbh I have no clue what's going on here.</p>
+    <p>The <a href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">Wikipedia article</a> has a lot of words but not enough to make me understand.</p></details></rt><rp>*/</rp></ruby>               // what the fuck?
+</code>
+</pre>
+<figcaption>Code annotated with ruby that <strong>expands on click</strong>.</figcaption>
 </figure>
+However, when doing this, be careful not to make the expanded one too wide, to avoid moving the text too much.
+
+<footer>
+</footer>
 </main>
 </body>
 
