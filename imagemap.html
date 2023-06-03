@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- <link href="css/imagemap.css" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet" />
+    <meta property="og:image" content="image/sharing_cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="450" />
+    <meta property="og:image:height" content="600" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LDN HTML ENERGY</title>
+</head>
+
+<!-- HI INSPECTOR! THIS PAGE IS FOR HTML.ENERGY -->
+
+<body>
+    <div>
+        <img src="image/floor.png" class="image-map" alt="imagemap" usemap="#workmap">
+        <div id="clicked-items">HELLO</div>
+        <map name="workmap">
+            <area shape="rect" class="area-button" coords="34,44,270,350" alt="Computer" onClick="buttonClicked()"
+                href="index.html">
+            <area shape="rect" coords="290,172,333,250" alt="Phone" onClick="buttonClicked()">
+            <area shape="circle" coords="337,300,44" alt="Coffee" onClick="buttonClicked()">
+        </map>
+    </div>
+</body>
+
+<script>
+    function myFunction(e) {
+        e.preventDefault();
+        document.getElementById("clicked-items").innerHTML = "orange clicked";
+    }
+</script>
+
+</html>
