@@ -47,3 +47,10 @@ area {
     cursor: pointer;
     border: none;
 }
+
+.footer {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
