@@ -15,6 +15,10 @@
     .code-ruby {
         font-size: 6pt;
     }
+
+    .ruby-grow-on-hover:hover rt {
+        font-size: 12pt;
+    }
     </style>
 </head>
 
@@ -53,6 +57,18 @@ float Q_rsqrt( float number )
 
     return y;
 }
+</code>
+</pre>
+<figcaption>Fast inverse square root (from <cite>Quake III</cite>), annotated with ruby</figcaption>
+</figure>
+<br />
+<p>This is cool, but it's not overly readable, even with the font size bumped up a little. Perhaps we can use CSS to improve it?</p>
+<figure>
+<pre>
+<code>
+    <ruby class="ruby-grow-on-hover">i  = * ( long * ) &y;<rp>/*</rp><rt class="code-ruby">reinterprets bits of the float as a long</rt><rp>*/</rp></ruby>                       // evil floating point bit level hacking
+    <ruby class="ruby-grow-on-hover">i  = 0x5f3759df - ( i >> 1 );<rp>/*</rp><rt class="code-ruby">abuses floating point w/ bitwise operations</rt><rp>*/</rp></ruby>               // what the fuck?
+    <ruby class="ruby-grow-on-hover">y  = * ( float * ) &i;<rp>/*</rp><rt class="code-ruby">reinterprets bits back to a float</rt><rp>*/</rp></ruby>
 </code>
 </pre>
 <figcaption>Fast inverse square root (from <cite>Quake III</cite>), annotated with ruby</figcaption>
